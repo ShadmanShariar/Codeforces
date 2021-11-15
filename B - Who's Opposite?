@@ -1,0 +1,424 @@
+/*==============================================
+Author      : Shadman Shariar                 ||
+Email       : shadman.shariar@northsouth.edu  ||
+University  : North South University (NSU)    ||
+Facebook    : shadman.shahriar.007            ||
+==============================================*/
+import java.io.*;
+import java.util.*;
+//import java.math.BigInteger;
+//import java.text.DecimalFormat;
+public class Main {
+public static Main obj = new Main();
+public static int [] dx = {-1, 1, 0, 0, -1, -1, 1, 1};
+public static int [] dy = {0, 0, -1, 1, -1, 1, -1, 1};
+//public static FastReader fr = new FastReader();
+public static Scanner input = new Scanner(System.in);
+//public static PrintWriter pw = new PrintWriter(System.out);
+//public static DecimalFormat df = new DecimalFormat(".000000000");
+//public static BufferedReader br = new BufferedReader
+//(new InputStreamReader(System.in));
+public static void main (String[] args) throws Exception {
+Scanner input = new Scanner (System.in);
+//BigInteger bi = new BigInteger("000");
+//StringBuilder sb = new StringBuilder();
+//StringBuffer sbf = new StringBuffer();
+//StringTokenizer st = new StringTokenizer("String","Split");
+//Vector vc = new Vector();
+//ArrayList<Integer> al= new ArrayList<Integer>();
+//LinkedList<Integer> ll= new LinkedList<Integer>();
+//Stack <Integer> stk = new Stack <Integer>();
+//Queue <Integer> q = new LinkedList<Integer>();
+//ArrayDeque<Integer> ad = new ArrayDeque<Integer>();
+//PriorityQueue <Integer> pq = new PriorityQueue<Integer>();
+//PriorityQueue <Integer> pqr = new PriorityQueue<Integer>(Comparator.reverseOrder());
+//HashSet<Integer> hs = new HashSet<Integer>();
+//LinkedHashSet<Integer> lhs = new LinkedHashSet<Integer>();
+//TreeSet<Integer> ts = new TreeSet<Integer>();
+//TreeSet<Integer> tsr = new TreeSet<Integer>(Comparator.reverseOrder());
+//HashMap<Integer,Integer> hm = new HashMap<Integer,Integer>();
+//LinkedHashMap<Integer,Integer> lhm = new LinkedHashMap<Integer,Integer>();
+//TreeMap<Integer,Integer> tm = new TreeMap<Integer,Integer>();
+//TreeMap<Integer,Integer> tmr = new TreeMap<Integer,Integer>(Comparator.reverseOrder());
+//LinkedList<Integer> adj[] = new LinkedList[size];
+ 
+//-----------------CODE STARTS FROM HERE------------------//
+ 
+int  tt = 1 ;
+ 
+tt = input.nextInt();
+ 
+for (int i = 0; i < tt; i++) {
+	 
+   long a = input.nextLong();
+   
+   long b = input.nextLong();
+   
+   long c = input.nextLong();
+   
+   
+   if(Math.abs(a-b)==1) {
+	   System.out.println(-1);
+	   continue;   
+   }
+   
+   long max = Math.max(a, b);
+   long min = Math.min(a, b);
+ 
+   
+   
+   long dif = max - min;
+   long tmp = dif - min;
+   
+   long pik = tmp+max;
+   
+   if(c>pik||pik<max) {
+	   System.out.println(-1);
+	   continue;
+   }
+   else {
+	
+	   long ok = max - min;
+	   
+	   if(c<max) {
+ 
+		 long hh = c+ok;
+		 
+		 if(hh>pik) {
+			 
+			 long ho = hh-pik;
+			 System.out.println(ho);
+		 }
+		 else {
+			 System.out.println(hh);
+		 }
+	   }
+	   else {
+		   System.out.println(c-ok);
+	   }
+	   
+   }
+   
+}
+ 
+ 
+//---------------------CODE ENDS HERE---------------------//
+ 
+        //pw.close();
+        input.close();
+		System.exit(0);
+}
+ 
+   public static class Node {
+		Node left, right;
+		int data;
+		public Node(int data) {
+			this.data = data;
+		}
+   }
+ 
+   public static Node createTree() {
+	Node root = null;
+	System.out.println("Enter data: ");
+	int data = input.nextInt();
+	if(data == -1) return null;
+	root = new Node(data);
+	System.out.println("Enter left for " + data);
+	root.left = createTree();
+	System.out.println("Enter right for "+ data);
+	root.right = createTree();
+	return root;
+   }
+ 
+   public static void inOrder(Node root) {
+	if(root == null) return;
+	inOrder(root.left);
+	System.out.print(root.data+" ");
+	inOrder(root.right);
+   }
+ 
+   public static long gcd(long a, long b) {
+	   if (a == 0)
+		   return b;
+	   return gcd(b % a, a);
+   }
+ 
+   public static long lcm(long a, long b) {
+	   return (a / gcd(a, b)) * b;
+   }
+ 
+   public static long nCr(long n, long r)
+   {
+       return factorial(n) / (factorial(r) *
+                  factorial(n - r));
+   }
+ 
+   public static long nPr(long n, long r)
+   {
+    return factorial(n) / factorial(n - r);
+   }
+ 
+   public static long countsubstring(String str)
+   {
+    long n = str.length();
+    return n * (n + 1) / 2;
+   }
+ 
+   public static boolean ispalindrome(String str)
+   {
+    int i = 0, j = str.length() - 1;
+    while (i < j) {
+        if (str.charAt(i) != str.charAt(j))
+            return false;
+        i++;
+        j--;
+    }
+    return true;
+   }
+ 
+   public static boolean perfectsquare(long x)
+   {
+    if (x >= 0) {
+        long sr = (long)(Math.sqrt(x));
+        return ((sr * sr) == x);
+    }
+    return false;
+   }
+ 
+   public static boolean perfectcube(long N)
+   {
+    int cube; int c = 0;
+    for (int i = 0; i <= N; i++) {
+        cube = i * i * i;
+        if (cube == N) {
+           
+            c=1; break;
+        }
+        else if (cube > N) {
+          
+           c=0 ; break ;
+        }
+    }
+	  if (c==1)return true;
+	  else return false;
+   }
+ 
+   public static int divcount(int n)
+   {
+       boolean hash[] = new boolean[n + 1];
+       Arrays.fill(hash, true);
+       for (int p = 2; p * p < n; p++)
+           if (hash[p] == true)
+               for (int i = p * 2; i < n; i += p)
+                   hash[i] = false;
+       int total = 1;
+       for (int p = 2; p <= n; p++) 
+       {
+           if (hash[p])
+           {
+               int count = 0;
+               if (n % p == 0) 
+               {
+                   while (n % p == 0) 
+                   {
+                       n = n / p;
+                       count++;
+                   }
+                   total = total * (count + 1);
+               }
+           }
+       }
+       return total;
+   }
+ 
+   public static void printdiv(int n)
+  {
+      for (int i=1; i<=Math.sqrt(n); i++)
+      {
+          if (n%i==0)
+          {
+              if (n/i == i)
+                  System.out.print(" "+ i);
+    
+              else
+                  System.out.print(i+" " + n/i + " " );
+          }
+      }
+  }
+ 
+   public static boolean[] sieveOfEratosthenes(int n)
+   {
+    boolean prime[] = new boolean[n + 1];
+    for (int i = 0; i <= n; i++)
+        prime[i] = true;
+ 
+    for (int p = 2; p * p <= n; p++)
+    {
+        if (prime[p] == true)
+        {
+            for (int i = p * p; i <= n; i += p)
+                prime[i] = false;
+        }
+    }
+    prime[1]=false;
+    return prime;
+   }
+ 
+   public static int removeduplicateelements(int arr[], int n){ 
+		Arrays.sort(arr);
+        if (n==0 || n==1){  
+            return n;  
+        }  
+        int[] temp = new int[n];  
+        int j = 0;  
+        for (int i=0; i<n-1; i++){  
+            if (arr[i] != arr[i+1]){  
+                temp[j++] = arr[i];  
+            }  
+         }  
+        temp[j++] = arr[n-1];      
+        for (int i=0; i<j; i++){  
+            arr[i] = temp[i];  
+        }  
+        return j;  
+    }  
+ 
+   public static int fibon(int n) {
+ 
+		if (n <= 1) {
+ 
+			return n;
+		}
+		int[] array = new int[n + 1];
+		array[0] = 0;
+		array[1] = 1;
+		for (int i = 2; i <= n; i++) {
+			array[i] = array[i - 2] + array[i - 1];
+		}
+ 
+		return array[n];
+ 
+	}
+ 
+   public static long sumofdigits(long n) {
+		long sum = 0;
+ 
+		while (n != 0) {
+			sum = sum + n % 10;
+			n = n / 10;
+		}
+ 
+		return sum;
+	}
+ 
+   public static int reversedigits(int num) {
+		int rev_num = 0;
+		while (num > 0) {
+			rev_num = rev_num * 10 + num % 10;
+			num = num / 10;
+		}
+		return rev_num;
+	}
+ 
+   public static int binarysearch(int arr[], int l, int r, int x) {
+ 
+		if (r >= l) {
+			int mid = l + (r - l) / 2;
+			if (arr[mid] == x)
+				return mid;
+			if (arr[mid] > x)
+				return binarysearch(arr, l, mid - 1, x);
+			return binarysearch(arr, mid + 1, r, x);
+		}
+		return -1;
+	}
+ 
+   public static void rangeofprimenumber(int a, int b) {
+		int i, j, flag;
+		for (i = a; i <= b; i++) {
+			if (i == 1 || i == 0)
+				continue;
+			flag = 1;
+			for (j = 2; j <= i / 2; ++j) {
+				if (i % j == 0) {
+					flag = 0;
+					break;
+				}
+			}
+			if (flag == 1)
+				System.out.println(i);
+		}
+	}
+ 
+   public static boolean isprime(long n) {
+		if (n <= 1)
+			return false;
+		else if (n == 2)
+			return true;
+		else if (n % 2 == 0)
+			return false;
+		for (long i = 3; i <= Math.sqrt(n); i += 2) {
+			if (n % i == 0)
+				return false;
+		}
+		return true;
+	}
+ 
+   public static long factorial(long n) {
+		return (n == 1 || n == 0) ? 1 : n * factorial(n - 1);
+	}
+ 
+   public static int[] reversearrayinrange(int arr[], int start, int end) {
+		int temp;
+ 
+		while (start < end) {
+			temp = arr[start];
+			arr[start] = arr[end];
+			arr[end] = temp;
+			start++;
+			end--;
+		}
+	  return arr;
+	}
+ 
+   public static class FastReader {
+		BufferedReader br;
+		StringTokenizer st;
+ 
+		public FastReader() {
+			br = new BufferedReader(new InputStreamReader(System.in));
+		}
+		String next() {
+			while (st == null || !st.hasMoreElements()) {
+				try {
+					st = new StringTokenizer(br.readLine());
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			return st.nextToken();
+		}
+ 
+		int nextInt() {
+			return Integer.parseInt(next());
+		}
+ 
+		long nextLong() {
+			return Long.parseLong(next());
+		}
+ 
+		double nextDouble() {
+			return Double.parseDouble(next());
+		}
+ 
+		String nextLine() {
+			String str = "";
+			try {
+				str = br.readLine();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return str;
+		}
+	}
+}
