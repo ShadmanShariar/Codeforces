@@ -1,0 +1,155 @@
+/*==============================================
+Name        : Shadman Shariar                 ||
+Email       : shadman.shariar@northsouth.edu  ||
+University  : North South University (NSU)    ||
+Facebook    : shadman.shahriar.007            ||
+==============================================*/
+import java.util.Scanner;
+ 
+public class Main {
+	
+	public static int binarysearch(int arr[], int l, int r, int x) 
+    { 
+        if (r >= l) { 
+            int mid = l + (r - l) / 2; 
+            if (arr[mid] == x) 
+                return mid; 
+            if (arr[mid] > x) 
+                return binarysearch(arr, l, mid - 1, x); 
+            return binarysearch(arr, mid + 1, r, x); 
+        }  
+        return -1; 
+    }
+	
+	public static int sumofarray(int arr[])  
+	{  
+	    int sum = 0;
+	    for (int i = 0; i < arr.length; i++)  
+	    sum += arr[i];  
+	    return sum;  
+	}
+	
+	public static int gcd(int a, int b)
+	    {
+	        if (a == 0)
+	            return b; 
+	        return gcd(b % a, a); 
+	    }
+	    static int lcm(int a, int b)
+	    {
+	        return (a / gcd(a, b)) * b;
+	    }
+	    
+	  public static void rangeofprimenumber(int a, int b) 
+	    {  
+	    	int i, j, flag;
+	    	for (i = a; i <= b; i++) {
+	            if (i == 1 || i == 0)
+	                continue;
+	            flag = 1;
+	            for (j = 2; j <= i / 2; ++j) {
+	                if (i % j == 0) {
+	                    flag = 0;
+	                    break;
+	                }
+	            }
+	            if (flag == 1)
+	                System.out.println(i);
+	        }
+	    } 
+	  
+	   public static boolean isprime(int n)
+	    {
+	        if (n <= 1)
+	            return false;
+	        else if (n == 2)
+	            return true;
+	        else if (n % 2 == 0)
+	            return false;
+	        for (int i = 3; i <= Math.sqrt(n); i += 2) 
+	        {
+	            if (n % i == 0)
+	                return false;
+	        }
+	        return true;
+	    }
+	    
+	   public static int factorial(int n) 
+	    { 
+	      return (n == 1 || n == 0) ? 1 : n * factorial(n - 1); 
+	    } 
+	   
+	   public static int[] reveresearray(int arr[],int start, int end)
+             {
+               int temp;
+     
+               while (start < end)
+              {
+                temp = arr[start]; 
+                arr[start] = arr[end];
+                arr[end] = temp;
+                start++;
+                end--;
+   } 
+               return arr;
+} 
+	
+	   public static int totaldivisor(int n){ 
+		   int c = 0;
+	        for (int i=1;i<=n;i++) 
+	            if (n%i==0)c++;
+	        
+	        return c;
+	    } 
+	   
+	  public static int findmax(int[]arr) 
+	     {  
+	         int max = arr[0];   
+	         for (int i = 1; i < arr.length; i++) { 
+	             if (arr[i] > max) {
+	                 max = arr[i]; 
+	             }
+	         }
+	         return max;
+	     } 
+	   
+	  public static int findmin(int[]arr) 
+	     {  
+	         int min = arr[0];   
+	         for (int i = 1; i < arr.length; i++) { 
+	             if (arr[i] < min) {
+	                 min = arr[i]; 
+	             }
+	         }
+	         return min;
+	     } 
+	  
+	public static void main(String[] args) {
+		
+		Scanner input = new Scanner (System.in);
+		 
+		
+		int n = input.nextInt();
+		for (int i = 0; i < n; i++) {
+			
+		
+			int alice = input.nextInt();
+			int bob = input.nextInt();
+			int a = 0,b=0;
+			if (alice<=bob) {
+				b=bob;
+				a = alice-1;
+			}
+			if (alice>bob) {
+				b=bob;
+				a = alice-1;
+			}
+System.out.println(a+" "+b);
+			
+		}
+	         
+	 
+			input.close();
+	}
+ 
+}
