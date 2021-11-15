@@ -1,0 +1,337 @@
+/*==============================================
+Name        : Shadman Shariar                 ||
+Email       : shadman.shariar@northsouth.edu  ||
+University  : North South University (NSU)    ||
+Facebook    : shadman.shahriar.007            ||
+==============================================*/
+ 
+import java.util.*;
+ 
+public class Main {
+ 
+	public static void main(String[] args) {
+	
+    Scanner input = new Scanner(System.in);
+    
+    
+    int tt = input.nextInt();
+    
+    for (int i = 0; i < tt; i++) {
+ 
+    	int n = input.nextInt();
+       int a = 0 , b = 0 ,c=0,d=0;
+      int g = 0;
+		for (int j = 0; j < n; j++) {
+			String s= input.next();
+			
+			for (int k = 0; k < n; k++) {
+				if(s.charAt(k)=='*'&&g==0) {
+					a=j;
+					b = k;
+					g++;
+					continue;
+				}
+				if(s.charAt(k)=='*'&&g==1) {
+					c=j;
+					d = k;
+					g++;
+				}
+			}
+		
+		}
+ 
+    
+    if(a==c&&a==0) {
+    	for (int j = 0; j < n; j++) {
+			for (int j2 = 0; j2 < n; j2++) {
+				if(j==0&&b==j2) {
+					System.out.print("*");
+					continue;
+				}if(j==0&&d==j2) {
+					System.out.print("*");
+					continue;
+				}
+				if(j==1&&b==j2) {
+					System.out.print("*");
+					continue;
+				}
+				if(j==1&&d==j2) {
+					System.out.print("*");
+					continue;
+				}
+				System.out.print(".");
+			}
+			System.out.println();
+		}
+    
+    }
+    else if(a==c&&a==n-1) {
+    	for (int j = 0; j < n; j++) {
+			for (int j2 = 0; j2 < n; j2++) {
+				if(j==n-1&&b==j2) {
+					System.out.print("*");
+					continue;
+				}if(j==n-1&&d==j2) {
+					System.out.print("*");
+					continue;
+				}
+				if(j==n-2&&b==j2) {
+					System.out.print("*");
+					continue;
+				}
+				if(j==n-2&&d==j2) {
+					System.out.print("*");
+					continue;
+				}
+				System.out.print(".");
+			}
+			System.out.println();
+		}
+    	
+    }
+    else if(b==d&&b==n-1) {
+    	for (int j = 0; j < n; j++) {
+			for (int j2 = 0; j2 < n; j2++) {
+				if(j==a&&n-1==j2) {
+					System.out.print("*");
+					continue;
+				}if(j==c&&n-1==j2) {
+					System.out.print("*");
+					continue;
+				}
+				if(j==a&&n-2==j2) {
+					System.out.print("*");
+					continue;
+				}
+				if(j==c&&n-2==j2) {
+					System.out.print("*");
+					continue;
+				}
+				System.out.print(".");
+			}
+			System.out.println();
+		}
+    	
+    }
+    else if(b==d&&b==0) {
+    	for (int j = 0; j < n; j++) {
+			for (int j2 = 0; j2 < n; j2++) {
+				if(j==a&&0==j2) {
+					System.out.print("*");
+					continue;
+				}if(j==c&&0==j2) {
+					System.out.print("*");
+					continue;
+				}
+				if(j==a&&1==j2) {
+					System.out.print("*");
+					continue;
+				}
+				if(j==c&&1==j2) {
+					System.out.print("*");
+					continue;
+				}
+				System.out.print(".");
+			}
+			System.out.println();
+		}
+    	
+    }
+    else if (b==d) {
+    	
+    	for (int j = 0; j < n; j++) {
+			for (int j2 = 0; j2 < n; j2++) {
+				if(j==a&&b==j2) {
+					System.out.print("*");
+					continue;
+				}if(j==c&&d==j2) {
+					System.out.print("*");
+					continue;
+				}
+				if(j==a&&b+1==j2) {
+					System.out.print("*");
+					continue;
+				}
+				if(j==c&&d+1==j2) {
+					System.out.print("*");
+					continue;
+				}
+				System.out.print(".");
+			}
+			System.out.println();
+		}
+    	
+    	
+    	
+    }
+    
+    else if(a==c) {
+    	
+    	for (int j = 0; j < n; j++) {
+			for (int j2 = 0; j2 < n; j2++) {
+				if(j==a&&b==j2) {
+					System.out.print("*");
+					continue;
+				}if(j==c&&d==j2) {
+					System.out.print("*");
+					continue;
+				}
+				if(j==a+1&&b==j2) {
+					System.out.print("*");
+					continue;
+				}
+				if(j==c+1&&d==j2) {
+					System.out.print("*");
+					continue;
+				}
+				System.out.print(".");
+			}
+			System.out.println();
+		}
+    	
+    }
+    
+    else {
+    	for (int j = 0; j < n; j++) {
+			for (int j2 = 0; j2 < n; j2++) {
+				if (a==j&&j2==b) {
+					System.out.print("*");
+					continue;
+				}
+				if (c==j&&j2==d) {
+					System.out.print("*");
+					continue;
+				}
+				if (a==j&&j2==d) {
+					System.out.print("*");
+					continue;
+				}
+				if (c==j&&j2==b) {
+					System.out.print("*");
+					continue;
+				}
+				
+					System.out.print(".");
+				
+			}
+			System.out.println();
+		}
+  }
+    	
+	}
+    
+		input.close();
+		
+		System.exit(0);
+	}
+	
+	public static int fibon(int n) {
+ 
+		if (n <= 1) {
+ 
+			return n;
+		}
+		int[] array = new int[n + 1];
+		array[0] = 0;
+		array[1] = 1;
+		for (int i = 2; i <= n; i++) {
+			array[i] = array[i - 2] + array[i - 1];
+		}
+ 
+		return array[n];
+ 
+	}
+ 
+	public static int sumofdigits(int n) {
+		int sum = 0;
+ 
+		while (n != 0) {
+			sum = sum + n % 10;
+			n = n / 10;
+		}
+ 
+		return sum;
+	}
+ 
+	public static int reversedigits(int num) {
+		int rev_num = 0;
+		while (num > 0) {
+			rev_num = rev_num * 10 + num % 10;
+			num = num / 10;
+		}
+		return rev_num;
+	}
+ 
+	public static int binarysearch(int arr[], int l, int r, int x) {
+ 
+		if (r >= l) {
+			int mid = l + (r - l) / 2;
+			if (arr[mid] == x)
+				return mid;
+			if (arr[mid] > x)
+				return binarysearch(arr, l, mid - 1, x);
+			return binarysearch(arr, mid + 1, r, x);
+		}
+		return -1;
+	}
+ 
+	public static long gcd(long a, long b) {
+		if (a == 0)
+			return b;
+		return gcd(b % a, a);
+	}
+ 
+	public static long lcm(long a, long b) {
+		return (a / gcd(a, b)) * b;
+	}
+ 
+	public static void rangeofprimenumber(int a, int b) {
+		int i, j, flag;
+		for (i = a; i <= b; i++) {
+			if (i == 1 || i == 0)
+				continue;
+			flag = 1;
+			for (j = 2; j <= i / 2; ++j) {
+				if (i % j == 0) {
+					flag = 0;
+					break;
+				}
+			}
+			if (flag == 1)
+				System.out.println(i);
+		}
+	}
+ 
+	public static boolean isprime(long n) {
+		if (n <= 1)
+			return false;
+		else if (n == 2)
+			return true;
+		else if (n % 2 == 0)
+			return false;
+		for (long i = 3; i <= Math.sqrt(n); i += 2) {
+			if (n % i == 0)
+				return false;
+		}
+		return true;
+	}
+ 
+	
+	public static int factorial(int n) {
+		return (n == 1 || n == 0) ? 1 : n * factorial(n - 1);
+	}
+ 
+	public static int[] reversearrayinrange(int arr[], int start, int end) {
+		int temp;
+ 
+		while (start < end) {
+			temp = arr[start];
+			arr[start] = arr[end];
+			arr[end] = temp;
+			start++;
+			end--;
+		}
+		return arr;
+	}
+ 
+}
