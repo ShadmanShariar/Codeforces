@@ -1,0 +1,41 @@
+import java.util.Scanner;
+ 
+public class Main {
+ 
+	public static void main(String[] args) {		
+		
+		Scanner input = new Scanner (System.in);
+		    int f = input.nextInt();
+		    
+		    for (int p = 0 ; p < f ; p++) {
+		int n = input.nextInt();
+		
+		int m = input.nextInt();
+		int c =0 ;
+		for (int i = 0 ; i < n ; i++) {
+			
+			String s = input.next();
+			
+			if (s.charAt(m-1)=='R') {
+				
+				c++;
+			}
+			
+			if (i==n-1) {
+				
+				for (int j = 0; j < s.length()-1 ; j++) {
+					
+					if (s.charAt(j)=='D') {
+						
+						c++;
+					}
+					
+				}
+			}
+			
+		}
+		System.out.println(c);
+		c=0;
+		    }
+	} 
+}
