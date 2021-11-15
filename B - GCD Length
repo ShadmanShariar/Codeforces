@@ -1,0 +1,194 @@
+/*==============================================
+Name        : Shadman Shariar                 ||
+Email       : shadman.shariar@northsouth.edu  ||
+University  : North South University (NSU)    ||
+Facebook    : shadman.shahriar.007            ||
+==============================================*/
+ 
+import java.util.*;
+ 
+public class Main {
+ 
+	public static void main(String[] args) {
+	
+    Scanner input = new Scanner(System.in);
+    
+    
+ int tt = input.nextInt();
+    
+    for (int i = 0; i < tt; i++) {
+	
+    	int a= input.nextInt();
+    	int b = input.nextInt();
+    	int c = input.nextInt();
+//    	String s1 = "";
+//    	String s2 = "";
+    	String s3 = "1";
+    	String s4 = "1";
+    	
+    	for (int j = 0; j < a-1; j++) {
+			s3+='0';
+		}
+    	
+    	for (int j = 0; j < b-1; j++) {
+    		if (j==(b-c-1)) {
+    			s4+='1';
+    			continue;
+    		}
+    		
+			s4+='0';
+		}
+    	
+    	System.out.println(s3+" "+s4);
+    	
+    	
+//    	for (int j = 0; j < a; j++) {
+//			s1+='9';
+//		}
+//    	for (int j = 0; j < b; j++) {
+//			s2+='9';
+//		}
+//    	
+//    	long num1 = Long.parseLong(s1);
+//    	long num2 = Long.parseLong(s2);
+//    	long num3 = Long.parseLong(s3);
+//    	long num4 = Long.parseLong(s4);
+//    	long x = 0 , y = 0 ;
+//    	int cc = 0;
+//    	for (long j = num3; j <= num1; j++) {
+//			for (long j2 = num4; j2 <= num2; j2++) {
+//				long res = gcd(j,j2);
+//				
+//				String h = res+"";
+//				
+//				if (h.length()==c) {
+//					x = j;
+//					y = j2;
+//		
+//					cc++;
+//					break;
+//				}
+//			}
+//			if (cc>0) {
+//				break;
+//			}
+//		}
+// 	System.out.println(x+" "+y);
+	}
+    
+    
+		input.close();
+		
+		System.exit(0);
+}
+	
+	public static int fibon(int n) {
+ 
+		if (n <= 1) {
+ 
+			return n;
+		}
+		int[] array = new int[n + 1];
+		array[0] = 0;
+		array[1] = 1;
+		for (int i = 2; i <= n; i++) {
+			array[i] = array[i - 2] + array[i - 1];
+		}
+ 
+		return array[n];
+ 
+	}
+ 
+	public static int sumofdigits(int n) {
+		int sum = 0;
+ 
+		while (n != 0) {
+			sum = sum + n % 10;
+			n = n / 10;
+		}
+ 
+		return sum;
+	}
+ 
+	public static int reversedigits(int num) {
+		int rev_num = 0;
+		while (num > 0) {
+			rev_num = rev_num * 10 + num % 10;
+			num = num / 10;
+		}
+		return rev_num;
+	}
+ 
+	public static int binarysearch(int arr[], int l, int r, int x) {
+ 
+		if (r >= l) {
+			int mid = l + (r - l) / 2;
+			if (arr[mid] == x)
+				return mid;
+			if (arr[mid] > x)
+				return binarysearch(arr, l, mid - 1, x);
+			return binarysearch(arr, mid + 1, r, x);
+		}
+		return -1;
+	}
+ 
+	public static long gcd(long a, long b) {
+		if (a == 0)
+			return b;
+		return gcd(b % a, a);
+	}
+ 
+	public static long lcm(long a, long b) {
+		return (a / gcd(a, b)) * b;
+	}
+ 
+	public static void rangeofprimenumber(int a, int b) {
+		int i, j, flag;
+		for (i = a; i <= b; i++) {
+			if (i == 1 || i == 0)
+				continue;
+			flag = 1;
+			for (j = 2; j <= i / 2; ++j) {
+				if (i % j == 0) {
+					flag = 0;
+					break;
+				}
+			}
+			if (flag == 1)
+				System.out.println(i);
+		}
+	}
+ 
+	public static boolean isprime(long n) {
+		if (n <= 1)
+			return false;
+		else if (n == 2)
+			return true;
+		else if (n % 2 == 0)
+			return false;
+		for (long i = 3; i <= Math.sqrt(n); i += 2) {
+			if (n % i == 0)
+				return false;
+		}
+		return true;
+	}
+ 
+	
+	public static int factorial(int n) {
+		return (n == 1 || n == 0) ? 1 : n * factorial(n - 1);
+	}
+ 
+	public static int[] reversearrayinrange(int arr[], int start, int end) {
+		int temp;
+ 
+		while (start < end) {
+			temp = arr[start];
+			arr[start] = arr[end];
+			arr[end] = temp;
+			start++;
+			end--;
+		}
+		return arr;
+	}
+ 
+}
