@@ -1,0 +1,28 @@
+import java.util.HashSet;
+import java.util.Scanner;
+ 
+public class Main {
+    
+    public static void main(String[] args) {
+        
+        Scanner input = new Scanner (System.in);
+       HashSet<Integer> hash = new HashSet<Integer>(); 
+      int n = input.nextInt();
+      
+        for (int i = 0; i < n; i++) {
+            
+            int x = input.nextInt();
+            
+            for (int j = 0; j < x*2; j++) {
+                int a = input.nextInt();
+                if (hash.contains(a)==false){
+                    System.out.print(a+" ");
+                hash.add(a);}
+            }
+            hash.clear();
+           
+        }
+        
+        
+    }
+}
